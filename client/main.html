@@ -1,17 +1,23 @@
-<head>
-	<title>IdeaBox</title>
-</head>
-<body>
-	<div class="container">
-		<h1>IdeaBox</h1>
-		<div class="col-md-6 col-md-offset-3">
-			{{> form}}
+<template name="index">
+	<head>
+		<title>IdeaBox</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="col-md-6 col-md-offset-3">
+				<h1>IdeaBox</h1>
+				{{#if alreadyUser}}
+					{{ alreadyUser.titre }}
+				{{else}}
+					{{> form}}
+				{{/if}}
+			</div>
+			<div class="col-md-6 col-md-offset-3">
+				{{> result}}
+			</div>
 		</div>
-		<div class="col-md-6 col-md-offset-3">
-			{{> result}}
-		</div>
-	</div>
-</body>
+	</body>
+</template>
 
 <template name="form">
 	<form class="form-inline">
@@ -37,11 +43,11 @@
 			</tr>
 		</thead>
 		<tbody>
-		{{#each ideeList}}
+		{{#each getResults}}
 			<tr>
 				<td>Id</td>
-				<td>{{titre}}</td>
-				<td>{{idee}}</td>
+				<td>{{ titre }}</td>
+				<td>{{ idee }}</td>
 			</tr>
 		{{/each}}
 		</tbody>
