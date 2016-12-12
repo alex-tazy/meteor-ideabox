@@ -1,0 +1,1 @@
+ideeList = new Mongo.Collection("ideeList");
