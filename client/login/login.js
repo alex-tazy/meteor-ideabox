@@ -4,25 +4,22 @@ import {
 import {
 	Session
 } from 'meteor/session';
-/*import './main.html';*/
 
 Template.index.helpers({
 	alreadyUser: function() {
-		if(Session.get("userId")) {
-			var curUser = ideeList.findOne({_id: Session.get("userId")});
-			if(curUser) {
-				return {_id: curUser._id, name: curUser.name};
+		if (Session.get("userId")) {
+			var curUser = ideeList.findOne({
+				_id: Session.get("userId")
+			});
+			if (curUser) {
+				return {
+					_id: curUser._id,
+					name: curUser.name
+				};
 			}
 		} else {
 			return null
 		}
-	}
-});
-
-Template.result.helpers({
-	getResults: function() {
-		// Récupère toutes les entrées de la collection "ideeList"
-		return ideeList.find().fetch();
 	}
 });
 
