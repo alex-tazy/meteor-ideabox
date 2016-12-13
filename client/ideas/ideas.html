@@ -6,7 +6,12 @@
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3">
 				<h1>IdeaBox</h1>
-					{{> form}}
+				{{#if alreadyUser}}
+					Bonjour <b>{{alreadyUser.titre}}</b>
+				{{else}}
+					<p>Pas encore inscrit !</p>
+				{{/if}}
+				{{> form}}
 			</div>
 			<div class="col-md-6 col-md-offset-3">
 				{{> result}}
@@ -41,7 +46,7 @@
 		<tbody>
 		{{#each getResults}}
 			<tr>
-				<td>Id</td>
+				<td></td>
 				<td>{{ titre }}</td>
 				<td>{{ idee }}</td>
 			</tr>

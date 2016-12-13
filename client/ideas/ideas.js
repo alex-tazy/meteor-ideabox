@@ -14,7 +14,7 @@ Template.index.helpers({
 			if (curUser) {
 				return {
 					_id: curUser._id,
-					name: curUser.name
+					titre: curUser.titre
 				};
 			}
 		} else {
@@ -36,11 +36,11 @@ Template.form.events({
 		var titre = $("#titre").val();
 		var idee = $("#idee").val();
 
-		newList = ideeList.insert({
+		Meteor.call('insertIdea', {
 			titre: titre,
 			idee: idee
 		}, function(error, result) {
-			if (result) {
+			if(result) {
 				Session.setPersistent("userId", result);
 				$("#idee").val('');
 				$("#titre").val('');
