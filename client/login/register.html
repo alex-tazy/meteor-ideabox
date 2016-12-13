@@ -1,24 +1,24 @@
-<template name="login">
+<template name="register">
 	<div class="container">
 		<div class="col-md-6 col-offset-3">
 			<div class="text-center">
 				<h1>IdeaBox</h1>
 			</div>
 			{{#if currentUser}}
-			<p>You are already logged</p>
+			<p>You are logged in.</p>
 			{{else}}
-				{{> formLogin}}
+				{{> formRegister}}
 			{{/if}}
 		</div>
 	</div>
 </template>
 
-<template name="formLogin">
+<template name="formRegister">
 	<fieldset>
-		<legend class="form-signin-heading">
-			Login
+		<legend>
+			Create Account
 		</legend>
-		<form class="form-signin">
+		<form class="form-signup" id="register-form">
 			<div class="form-group">
 				<label for="login" class="sr-only">Login</label>
 				<input type="text" id="login" placeholder="Login" class="form-control" required>
@@ -28,8 +28,11 @@
 				<input type="password" id="pwd" placeholder="Password" class="form-control" required>
 			</div>
 			<div class="form-group">
-				<button class="btn btn-primary btn-block" type="submit">Log In</button>
-				<p>No Account ? <a href="/signup">Create account</a></p>
+				<label for="confirmPwd" class="sr-only">Confirm Password</label>
+				<input type="password" id="confirmPwd" placeholder="Password" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary btn-block" type="submit">Sign up</button>
 			</div>
 		</form>
 	</fieldset>

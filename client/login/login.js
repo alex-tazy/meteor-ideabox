@@ -1,6 +1,9 @@
 import {
 	Template
 } from 'meteor/templating';
-import {
-	Session
-} from 'meteor/session';
+
+Template.formLogin.events({
+	"submit .form-signin": function(ev) {
+		ev.preventDefault();
+	}
+});
