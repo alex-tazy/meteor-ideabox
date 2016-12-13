@@ -24,11 +24,11 @@
 	<form class="form-inline">
 		<div class="form-group">
 			<label for="titre">Titre</label>
-			<input class="form-control" type="text" name="titre" id="titre" placeholder="titre">
+			<input class="form-control" type="text" id="titre" placeholder="titre" required>
 		</div>
 		<div class="form-group">
 			<label for="idee">Idee</label>
-			<input class="form-control" type="text" name="idee" id="idee" placeholder="idee...">
+			<input class="form-control" type="text" id="idee" placeholder="idee..." required>
 		</div>
 		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
@@ -41,14 +41,22 @@
 				<th>#</th>
 				<th>Titre</th>
 				<th>Idee</th>
+				<th>Date</th>
+				<th>Author</th>
+				<th>Votes</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 		{{#each getResults}}
 			<tr>
 				<td></td>
-				<td>{{ titre }}</td>
-				<td>{{ idee }}</td>
+				<td><span class="data"><span class="data-value">{{ titre }}</span><input type="text" class="hidden form-control new-title" value="{{titre}}"></span></td>
+				<td><span class="data"><span class="data-value">{{ idee }}</span><input type="text" class="hidden form-control new-idee" value="{{idee}}"></span></td>
+				<td>{{ date }}</td>
+				<td>{{ author }}</td>
+				<td>{{ votes }}</td>
+				<td><button class="btn btn-primary">Voter</button><button class="btn btn-danger">Supprimer</button></td>
 			</tr>
 		{{/each}}
 		</tbody>
