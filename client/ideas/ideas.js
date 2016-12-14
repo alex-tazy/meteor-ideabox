@@ -9,7 +9,6 @@ Template.index.events({
 	'click .logout': function(ev) {
 		ev.preventDefault();
 		Meteor.call("userLogout", function(error, result) {
-			debugger
 			if(!error) {
 				alert("Vous avez bien été déconnecté");
 				Router.go("/login");

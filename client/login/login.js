@@ -9,7 +9,7 @@ Template.formLogin.events({
 		var pwd = ev.target.pwd.value;
 
 		Meteor.loginWithPassword(login, pwd, function(error, result) {
-			Route.go("/");
+			Route.go("/index");
 		});
 	}
 });
