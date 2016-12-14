@@ -1,0 +1,50 @@
+section#login-form {
+    background-image: url('https://newevolutiondesigns.com/images/freebies/space-wallpaper-5.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section#login-form .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+}
+section#login-form h1 {
+    color: #FFF;
+    font-weight: bolder;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Stalinist One', cursive;
+}
+section#login-form form {
+    text-align: center;
+}
+section#login-form form .form-group {
+    text-align: center;
+}
+section#login-form form .form-group input {
+    background: transparent;
+    margin: 0 auto;
+    color: #FFF;
+    max-width: 300px;
+    border: 1px solid #FFF;
+}
+section#login-form form .form-group:last-of-type {
+    max-width: 300px;
+    margin: 0 auto;
+}
+section#login-form form .form-group:last-of-type p {
+    line-height: 35px;
+    color: #FFF;
+}
+section#login-form form .form-group:last-of-type button {
+    background: transparent;
+    color: #FFF;
+    border: 1px solid #FFF;
+}

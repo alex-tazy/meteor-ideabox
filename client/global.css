@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:300,400,700,900|Stalinist+One');
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: 'Exo', sans-serif;
+}
+
+section {
+    min-height: 100%;
+    width: 100%;
+}

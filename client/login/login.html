@@ -1,36 +1,35 @@
 <template name="login">
-	<div class="container">
-		<div class="col-md-6 col-offset-3">
-			<div class="text-center">
-				<h1>IdeaBox</h1>
-			</div>
-			{{#if currentUser}}
-			<p>You are already logged</p>
-			{{else}}
-				{{> formLogin}}
-			{{/if}}
-		</div>
-	</div>
+    <section id="login-form">
+        <div class="overlay"></div>
+    	<div class="container">
+    		<div class="col-md-6 col-md-offset-3">
+    			<h1>Boite à idées</h1>
+    			{{#if currentUser}}
+    			<p>You are already logged</p>
+    			{{else}}
+    				{{> formLogin}}
+    			{{/if}}
+    		</div>
+    	</div>
+    </section>
 </template>
 
 <template name="formLogin">
 	<fieldset>
-		<legend class="form-signin-heading">
-			Login
-		</legend>
 		<form class="form-signin">
 			<div class="form-group">
-				<label for="login" class="sr-only">Login</label>
-				<input type="text" id="login" placeholder="Login" class="form-control" required>
+				<label for="login" class="sr-only">Identifiant</label>
+				<input type="text" id="login" placeholder="Identifiant" class="form-control" autocomplete="off" required>
 			</div>
 			<div class="form-group">
-				<label for="pwd" class="sr-only">Password</label>
-				<input type="password" id="pwd" placeholder="Password" class="form-control" required>
+				<label for="pwd" class="sr-only">Mot de passe</label>
+				<input type="password" id="pwd" placeholder="Mot de passe" class="form-control" autocomplete="off" required>
 			</div>
 			<div class="form-group">
-				<button class="btn btn-primary btn-block" type="submit">Log In</button>
-				<p>No Account ? <a href="/signup">Create account</a></p>
+				<button class="btn pull-right" type="submit">Connexion</button>
+                <p class="pull-left">Pas de compte ? <a href="/signup">Créer en un</a></p>
 			</div>
+
 		</form>
 	</fieldset>
 </template>
