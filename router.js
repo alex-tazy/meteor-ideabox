@@ -1,4 +1,4 @@
-Router.route('/', function() {
+Router.route('/index', function() {
 	this.render('index');
 });
 Router.route('/login', function() {
