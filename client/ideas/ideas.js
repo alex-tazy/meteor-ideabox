@@ -1,16 +1,12 @@
 import {
 	Template
 } from 'meteor/templating';
-import {
-	Session
-} from 'meteor/session';
 
 Template.index.events({
 	'click .logout': function(ev) {
 		ev.preventDefault();
 		Meteor.call("userLogout", function(error, result) {
-			debugger
-			if(!error) {
+			if (!error) {
 				alert("Vous avez bien été déconnecté");
 				Router.go("/login");
 			}
@@ -48,12 +44,15 @@ Template.result.events({
 
 	'dblclick .data': function(ev) {
 		ev.preventDefault();
-		var elem = $(ev.target);
-		elem.addClass("hidden");
-		var cell = $(ev.currentTarget);
-		var input = cell.find("input");
-		input.removeClass("hidden");
-		input.focus();
+		var user = Meteor.user();
+		if (user.username == this.author) {
+			var elem = $(ev.target);
+			elem.addClass("hidden");
+			var cell = $(ev.currentTarget);
+			var input = cell.find("input");
+			input.removeClass("hidden");
+			input.focus();
+		}
 	},
 
 	'keydown .edit-input, blur .edit-input': function(ev) {
@@ -88,8 +87,10 @@ Template.form.events({
 		var author = Meteor.user();
 		var today = new Date();
 		var dd = today.getDate();
-		var mm = today.getMonth() + 1; //January is 0!
+		var mm = today.getMonth() + 1;
 		var yyyy = today.getFullYear();
+		var h = today.getHours();
+		var m = today.getMinutes();
 
 		if (dd < 10) {
 			dd = '0' + dd
@@ -99,7 +100,7 @@ Template.form.events({
 			mm = '0' + mm
 		}
 
-		today = mm + '/' + dd + '/' + yyyy;
+		today = dd + '/' + mm + '/' + yyyy + ' ' + h + ':' + m;
 
 		Meteor.call('insertIdea', {
 			titre: titre,

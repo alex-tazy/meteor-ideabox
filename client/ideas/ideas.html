@@ -59,7 +59,13 @@
 				<td>{{ date }}</td>
 				<td>{{ author }}</td>
 				<td>{{ votes }}</td>
-				<td><button class="btn btn-primary">Voter</button><button class="btn btn-danger">Supprimer</button></td>
+				<td>
+					{{#if currentUser.username = this.author}}
+						<button class="btn btn-danger">Supprimer</button>
+					{{else}}
+						<button class="btn btn-primary">Voter</button>
+					{{/if}}
+				</td>
 			</tr>
 		{{/each}}
 		</tbody>
