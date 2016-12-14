@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="col-md-6 col-md-offset-3">
+			<div class="col-md-12">
 				<h1>IdeaBox</h1>
 				{{#if currentUser}}
 					<p>Bonjour <b>{{currentUser.username}}</b> <button class="btn btn-warning logout">Deconnexion</button></p>
@@ -36,7 +36,6 @@
 </template>
 
 <template name="result">
-<div class="col-md-6 col-md-offset-3">
 	{{> form}}
 	<table class="table">
 		<thead>
@@ -64,5 +63,4 @@
 		{{/each}}
 		</tbody>
 	</table>
-</div>
 </template>

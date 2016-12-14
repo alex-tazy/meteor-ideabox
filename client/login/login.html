@@ -1,9 +1,15 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>Connexion</title>
+</head>
+
 <template name="login">
     <section id="login-form">
         <div class="overlay"></div>
     	<div class="container">
     		<div class="col-md-6 col-md-offset-3">
-    			<h1>Boite à idées</h1>
+    			<h1>Connexion</h1>
     			{{#if currentUser}}
     			<p>You are already logged <a href="/">Click here to go home</a></p>
     			{{else}}
@@ -27,7 +33,7 @@
 			</div>
 			<div class="form-group">
 				<button class="btn pull-right" type="submit">Connexion</button>
-                <p class="pull-left">Pas de compte ? <a href="/register">Créer en un</a></p>
+                <p class="pull-left"><a href="/register">Inscription</a></p>
 			</div>
 		</form>
 	</fieldset>
