@@ -8,18 +8,34 @@ Template.register.events({
 		var login = ev.target.login.value;
 		var pwd = ev.target.pwd.value;
 		var confirmPwd = ev.target.confirmPwd.value;
-		debugger;
 
-		Accounts.createUser({
-			login: login,
-			password: pwd
-		}, function(error, result) {
-			if(error) {
-				console.log("error");
+		if (isEmpty(login) && isEmpty(pwd) && isEmpty(confirmPwd)) {
+			if (pwd === confirmPwd) {
+				Meteor.call("addUser", {
+					login: login,
+					pwd: pwd
+				}, function(error, result) {
+					if (error) {
+						console.log(error);
+					} else {
+						alert("account created");
+						Router.go("/login");
+					}
+				});
 			} else {
-				console.log("account created");
-				Router.go("/");
+				alert("Vos mots de passes ne correspondent pas");
+				return false;
 			}
-		});
+		} else {
+			alert("Vous devez rentrez une valeur valide");
+			return false;
+		}
 	}
 });
+
+function isEmpty(value) {
+	if (value && value != '')
+		return true;
+	else
+		return false;
+};
