@@ -1,10 +1,3 @@
-tbody{
-	counter-reset: rowNumber;
-}
-tbody tr{
-	counter-increment: rowNumber;
-}
-
-tbody tr td:first-child::before {
-	content: counter(rowNumber);
+.votes-idee {
+	line-height: 34px;
 }

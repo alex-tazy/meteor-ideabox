@@ -13,3 +13,7 @@ section {
     min-height: 100%;
     width: 100%;
 }
+
+.inline-block{
+	display: inline-block;
+}

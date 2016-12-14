@@ -23,7 +23,7 @@ Template.result.helpers({
 	isAuthor: function() {
 		var user = Meteor.user();
 		var me = this;
-		if(user.username == me.author) {
+		if (user.username == me.author) {
 			return true;
 		} else {
 			return false;
@@ -32,6 +32,7 @@ Template.result.helpers({
 
 	alreadyVoted: function() {
 		var user = Metor.user();
+		var me = this;
 	}
 });
 

@@ -18,8 +18,9 @@ Template.register.events({
 					if (error) {
 						console.log(error);
 					} else {
-						alert("account created");
-						Router.go("/login");
+						Meteor.loginWithPassword(login, pwd, function(error, result) {
+							Router.go("/");
+						});
 					}
 				});
 			} else {
