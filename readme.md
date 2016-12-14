@@ -18,7 +18,7 @@ Fonctionnalités
 
 1. Inscription/Connection
 2. Ajout d'une idée (titre, contenu, auteur)
-3. Modification du titre et de l'idée possible (auteur seulement)
+3. Modification du titre et de l'idée possible (auteur seulement) => double click sur le contenu ou le titre pour activer cette fonction
 4. Suppression d'idées (auteur seulement)
 5. Possibilité de voter pour une idée (autre que les siennes)
 
