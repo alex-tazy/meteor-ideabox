@@ -5,23 +5,18 @@ import {
 	Session
 } from 'meteor/session';
 
-Template.index.helpers({
-	alreadyUser: function() {
-		if (Session.get("userId")) {
-			var curUser = ideeList.findOne({
-				_id: Session.get("userId")
-			});
-			if (curUser) {
-				return {
-					_id: curUser._id,
-					titre: curUser.titre
-				};
+Template.index.events({
+	'click .logout': function(ev) {
+		ev.preventDefault();
+		Meteor.call("userLogout", function(error, result) {
+			debugger
+			if(!error) {
+				alert("Vous avez bien été déconnecté");
+				Router.go("/login");
 			}
-		} else {
-			return null
-		}
+		})
 	}
-});
+})
 
 Template.result.helpers({
 	getResults: function() {
@@ -61,7 +56,7 @@ Template.result.events({
 		input.focus();
 	},
 
-	'keydown input, blur input': function(ev) {
+	'keydown .edit-input, blur .edit-input': function(ev) {
 		if (ev.keyCode == 13 || ev.type == "focusout") {
 			var me = this;
 			var elem = $(ev.target);
@@ -90,6 +85,7 @@ Template.form.events({
 		ev.preventDefault();
 		var titre = $("#titre").val();
 		var idee = $("#idee").val();
+		var author = Meteor.user();
 		var today = new Date();
 		var dd = today.getDate();
 		var mm = today.getMonth() + 1; //January is 0!
@@ -109,11 +105,10 @@ Template.form.events({
 			titre: titre,
 			idee: idee,
 			date: today,
-			author: titre,
+			author: author.username,
 			votes: 0
 		}, function(error, result) {
 			if (result) {
-				Session.setPersistent("userId", result);
 				$("#idee").val('');
 				$("#titre").val('');
 				$("#titre").blur();

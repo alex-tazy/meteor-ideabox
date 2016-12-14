@@ -7,7 +7,7 @@ Meteor.methods({
 			titre: idea.titre,
 			idee: idea.idee,
 			date: idea.date,
-			author: idea.titre,
+			author: idea.author,
 			votes: idea.votes
 		});
 		return newList;

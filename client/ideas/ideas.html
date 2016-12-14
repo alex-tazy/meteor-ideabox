@@ -6,16 +6,17 @@
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3">
 				<h1>IdeaBox</h1>
-				{{#if alreadyUser}}
-					Bonjour <b>{{alreadyUser.titre}}</b>
+				{{#if currentUser}}
+					<p>Bonjour <b>{{currentUser.username}}</b> <button class="btn btn-warning logout">Deconnexion</button></p>
 				{{else}}
 					<p>Pas encore inscrit !</p>
 				{{/if}}
-				{{> form}}
 			</div>
-			<div class="col-md-6 col-md-offset-3">
+			{{#if currentUser}}
 				{{> result}}
-			</div>
+			{{else}}
+				<p>Erreur de connexion <a href="/login">Retourner à la page de connexion</a></p>
+			{{/if}}
 		</div>
 	</body>
 </template>
@@ -35,6 +36,8 @@
 </template>
 
 <template name="result">
+<div class="col-md-6 col-md-offset-3">
+	{{> form}}
 	<table class="table">
 		<thead>
 			<tr>
@@ -51,8 +54,8 @@
 		{{#each getResults}}
 			<tr>
 				<td></td>
-				<td><span class="data"><span class="data-value">{{ titre }}</span><input type="text" class="hidden form-control new-title" value="{{titre}}"></span></td>
-				<td><span class="data"><span class="data-value">{{ idee }}</span><input type="text" class="hidden form-control new-idee" value="{{idee}}"></span></td>
+				<td><span class="data"><span class="data-value">{{ titre }}</span><input type="text" class="hidden form-control edit-input new-title" value="{{titre}}"></span></td>
+				<td><span class="data"><span class="data-value">{{ idee }}</span><input type="text" class="hidden form-control edit-input new-idee" value="{{idee}}"></span></td>
 				<td>{{ date }}</td>
 				<td>{{ author }}</td>
 				<td>{{ votes }}</td>
@@ -61,4 +64,5 @@
 		{{/each}}
 		</tbody>
 	</table>
+</div>
 </template>
