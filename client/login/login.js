@@ -8,8 +8,22 @@ Template.formLogin.events({
 		var login = ev.target.login.value;
 		var pwd = ev.target.pwd.value;
 
-		Meteor.loginWithPassword(login, pwd, function(error, result) {
-			Router.go("/index");
-		});
+		if (isEmpty(login) && isEmpty(pwd)) {
+			Meteor.loginWithPassword(login, pwd, function(error, result) {
+				if(error) {
+					$(".wrongLogin").removeClass("hidden");
+					return false;
+				} else {
+					Router.go("/");
+				}
+			});
+		}
 	}
 });
+
+function isEmpty(value) {
+	if (value && value != '')
+		return true;
+	else
+		return false;
+};

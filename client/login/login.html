@@ -23,6 +23,9 @@
 <template name="formLogin">
 	<fieldset>
 		<form class="form-signin">
+			<div class="form-group wrongLogin hidden">
+				<p class="danger">Le login ne correspond pas au mot de passe</p>
+			</div>
 			<div class="form-group">
 				<label for="login" class="sr-only">Identifiant</label>
 				<input type="text" id="login" placeholder="Identifiant" class="form-control" autocomplete="off" required>
