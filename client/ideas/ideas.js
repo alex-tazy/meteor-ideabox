@@ -18,6 +18,20 @@ Template.result.helpers({
 	getResults: function() {
 		// Récupère toutes les entrées de la collection "ideeList" dans un tableau
 		return ideeList.find().fetch();
+	},
+
+	isAuthor: function() {
+		var user = Meteor.user();
+		var me = this;
+		if(user.username == me.author) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+
+	alreadyVoted: function() {
+		var user = Metor.user();
 	}
 });
 

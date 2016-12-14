@@ -10,7 +10,12 @@ Template.formLogin.events({
 
 		if (isEmpty(login) && isEmpty(pwd)) {
 			Meteor.loginWithPassword(login, pwd, function(error, result) {
-				Router.go("/");
+				if(error) {
+					$(".wrongLogin").removeClass("hidden");
+					return false;
+				} else {
+					Router.go("/");
+				}
 			});
 		}
 	}

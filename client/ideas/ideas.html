@@ -60,7 +60,7 @@
 				<td>{{ author }}</td>
 				<td>{{ votes }}</td>
 				<td>
-					{{#if currentUser.username = this.author}}
+					{{#if isAuthor}}
 						<button class="btn btn-danger">Supprimer</button>
 					{{else}}
 						<button class="btn btn-primary">Voter</button>
