@@ -16,10 +16,11 @@ Template.register.events({
 					pwd: pwd
 				}, function(error, result) {
 					if (error) {
-						console.log(error);
+						console.log("Une erreur est survenue:" + error);
+						return false;
 					} else {
 						Meteor.loginWithPassword(login, pwd, function(error, result) {
-							Router.go("/");
+							Router.go("/index");
 						});
 					}
 				});

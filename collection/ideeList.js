@@ -15,10 +15,12 @@ Meteor.methods({
 
 	// Méthode pour update le compteur de vote avec un minimum de sécurité
 	updateCounter: function(idea) {
+		var votes = idea.votes;
+		votes.push(idea.author);
 		ideeList.update(
 			idea.id, {
 				$set: {
-					votes: idea.votes + 1
+					votes: votes
 				}
 			}
 		);

@@ -11,7 +11,7 @@ Dès que la procédure est terminée, lancer le serveur à l'aide de la commande
 ```
 meteor
 ```
-Puis admirez le résultat à l'adresse: http://localhost:3000
+Puis admirez le résultat à l'adresse: http://localhost:3000/index
 
 Fonctionnalités
 -------------

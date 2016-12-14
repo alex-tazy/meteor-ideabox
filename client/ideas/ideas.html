@@ -13,28 +13,23 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Link</a></li>
+					{{#if currentUser}}
 					<li class="dropdown active">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{currentUser.username}} <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Action</a></li>
 							<li><a href="#">Another action</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a class="logout">Deconnexion</a></li>
+							<li><a class="logout" href="#">Deconnexion</a></li>
 						</ul>
 					</li>
+					{{/if}}
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<div class="container-fluid" style="margin-top: 51px">
-		<div class="col-md-12">
-			{{#if currentUser}}
-
-			{{else}}
-			<p>Pas encore inscrit !</p>
-			{{/if}}
-		</div>
+	<div class="container-fluid" style="margin-top: 55px">
 		{{#if currentUser}}
 		{{> result}}
 		{{else}}
@@ -46,11 +41,11 @@
 <template name="form">
 	<form class="form-inline">
 		<div class="form-group">
-			<label for="titre">Titre</label>
+			<label for="titre">Titre: </label>
 			<input class="form-control" type="text" id="titre" placeholder="titre" required>
 		</div>
 		<div class="form-group">
-			<label for="idee">Idee</label>
+			<label for="idee">Idee: </label>
 			<input class="form-control" type="text" id="idee" placeholder="idee..." required>
 		</div>
 		<button type="submit" class="btn btn-default">Submit</button>
@@ -75,13 +70,13 @@
 			</div>
 			<div class="panel-footer">
 				<div class="votes-idee pull-left">
-					Votes: {{ votes }}
+					Votes: {{ votes.length }}
 				</div>
 				<div class="pull-right">
 					{{#if isAuthor}}
 					<button class="btn btn-danger">Supprimer</button>
 					{{else}}
-					<button class="btn btn-primary">Voter</button>
+					{{> vote}}
 					{{/if}}
 				</div>
 				<div class="clear" style="clear: both;"></div>
@@ -89,4 +84,12 @@
 		</div>
 	</div>
 	{{/each}}
+</template>
+
+<template name="vote">
+	{{#if alreadyVoted}}
+	<button class="btn btn-primary disabled">Voter</button>
+	{{else}}
+	<button class="btn btn-primary">Voter</button>
+	{{/if}}
 </template>

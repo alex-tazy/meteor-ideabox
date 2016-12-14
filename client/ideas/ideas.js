@@ -6,10 +6,7 @@ Template.index.events({
 	'click .logout': function(ev) {
 		ev.preventDefault();
 		Meteor.call("userLogout", function(error, result) {
-			if (!error) {
-				alert("Vous avez bien été déconnecté");
-				Router.go("/login");
-			}
+			Router.go("/login");
 		})
 	}
 })
@@ -23,31 +20,14 @@ Template.result.helpers({
 	isAuthor: function() {
 		var user = Meteor.user();
 		var me = this;
-		if (user.username == me.author) {
+		if (user.username == me.author)
 			return true;
-		} else {
+		else
 			return false;
-		}
-	},
-
-	alreadyVoted: function() {
-		var user = Metor.user();
-		var me = this;
 	}
 });
 
 Template.result.events({
-	'click .btn-primary': function(ev) {
-		ev.preventDefault();
-		var me = this;
-		var id = me._id;
-		var votes = me.votes;
-		Meteor.call('updateCounter', {
-			id: id,
-			votes: votes
-		});
-	},
-
 	'click .btn-danger': function(ev) {
 		ev.preventDefault();
 		var me = this;
@@ -86,10 +66,43 @@ Template.result.events({
 				field: field,
 				edit: value
 			}, function(error, result) {
-				var pute = elem.parent().find("span");
+				var span = elem.parent().find("span");
 				elem.addClass("hidden");
-				pute.removeClass("hidden");
+				span.removeClass("hidden");
 			});
+		}
+	}
+});
+
+Template.vote.helpers({
+	alreadyVoted: function() {
+		var user = Meteor.user();
+		var me = this;
+		var voted = me.votes.indexOf(user.username);
+		if(voted == -1)
+			return false;
+		else
+			return true;
+	}
+});
+
+Template.vote.events({
+	'click .btn-primary': function(ev) {
+		ev.preventDefault();
+		var target = $(ev.target);
+		if(!target.hasClass("disabled")) {
+			var me = this;
+			var id = me._id;
+			var votes = me.votes;
+			var user = Meteor.user();
+			var author = user.username;
+			Meteor.call('updateCounter', {
+				id: id,
+				author: author,
+				votes: votes
+			});
+		} else {
+			return false;
 		}
 	}
 });
@@ -122,7 +135,7 @@ Template.form.events({
 			idee: idee,
 			date: today,
 			author: author.username,
-			votes: 0
+			votes: []
 		}, function(error, result) {
 			if (result) {
 				$("#idee").val('');
