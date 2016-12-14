@@ -13,3 +13,13 @@ Règles à suivre:
 - ne pas oublier de points virgules !!
 
 La documentation est à mettre à jour
+
+Fonctionnalités :
+
+Inscription
+Connexion
+
+Ajout d'une idée (titre, contenu)
+Modification d'une idée par son auteur (double clique sur le champs)
+Suppression d'une idée par son auteur
+Vote pour l'idée si l'utilisateur n'est pas l'auteur
