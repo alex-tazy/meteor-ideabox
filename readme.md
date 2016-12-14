@@ -1,3 +1,5 @@
+Alexandre Cahay | Alexis Buon
+
 Pour installer le projet:
 
 1. Cloner le répertoire
