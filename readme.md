@@ -1,25 +1,27 @@
-Alexandre Cahay | Alexis Buon
+#Boite à Idée
 
-Pour installer le projet:
+Installation
+-------------
 
-1. Cloner le répertoire
-2. Afin d'installer les dépendances nécessaires au bon fonctionnement du projet, faire la commande: meteor npm install
-3. Lancer le serveur à l'aide de la commande: meteor
-4. Admirez le résultat à l'adresse: http://localhost:3000
+Une fois le dossier cloné, utiliser cette commande afin de configurer le projet
+```
+meteor npm install
+```
+Dès que la procédure est terminée, lancer le serveur à l'aide de la commande
+```
+meteor
+```
+Puis admirez le résultat à l'adresse: http://localhost:3000
 
-Règles à suivre:
-- JS Beautifer
-- Encapsulation du code
-- ne pas oublier de points virgules !!
+Fonctionnalités
+-------------
 
-La documentation est à mettre à jour
+1. Inscription/Connection
+2. Ajout d'une idée (titre, contenu, auteur)
+3. Modification du titre et de l'idée possible (auteur seulement)
+4. Suppression d'idées (auteur seulement)
+5. Possibilité de voter pour une idée (autre que les siennes)
 
-Fonctionnalités :
-
-Inscription
-Connexion
-
-Ajout d'une idée (titre, contenu)
-Modification d'une idée par son auteur (double clique sur le champs)
-Suppression d'une idée par son auteur
-Vote pour l'idée si l'utilisateur n'est pas l'auteur
+Auteurs
+-------------
+Alexis Buon & Alexandre Cahay
