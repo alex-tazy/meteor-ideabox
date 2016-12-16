@@ -15,7 +15,6 @@ caching-compiler@1.1.9
 caching-html-compiler@1.0.7
 callback-hook@1.0.10
 check@1.2.4
-coffeescript@1.0.17
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.8
@@ -54,8 +53,6 @@ meteor-base@1.0.4
 minifier-css@1.2.15
 minifier-js@1.2.15
 minimongo@1.0.19
-mizzao:timesync@0.3.4
-mizzao:user-status@0.6.6
 mobile-experience@1.0.4
 mobile-status-bar@1.0.13
 modules@0.7.7
@@ -75,10 +72,8 @@ reload@1.1.11
 retry@1.0.9
 routepolicy@1.0.12
 service-configuration@1.0.11
-session@1.0.5
 sha@1.0.9
 shell-server@0.2.1
-softwarerero:accounts-t9n@1.3.6
 spacebars@1.0.13
 spacebars-compiler@1.0.13
 srp@1.0.10
@@ -93,7 +88,5 @@ twbs:bootstrap@3.3.6
 ui@1.0.12
 underscore@1.0.10
 url@1.0.11
-useraccounts:bootstrap@1.14.2
-useraccounts:core@1.14.2
 webapp@1.3.12
 webapp-hashing@1.0.9

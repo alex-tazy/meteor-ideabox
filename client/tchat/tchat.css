@@ -1,0 +1,7 @@
+.messages:last-child hr {
+	display: none;
+}
+
+.messages:last-child {
+	margin-bottom: 20px;
+}

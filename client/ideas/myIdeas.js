@@ -2,10 +2,12 @@ import {
 	Template
 } from 'meteor/templating';
 
-Template.resultideas.helpers({
+Template.myideas.helpers({
 	getMyIdeas: function() {
 		var user = Meteor.userId();
-		return ideeList.find({author: user});
+		return ideeList.find({
+			author: user
+		});
 	},
 
 	getAuthor: function() {
@@ -14,7 +16,7 @@ Template.resultideas.helpers({
 	}
 });
 
-Template.resultideas.events({
+Template.myideas.events({
 	'click .btn-danger': function(ev) {
 		ev.preventDefault();
 		var me = this;
@@ -59,4 +61,4 @@ Template.resultideas.events({
 			});
 		}
 	}
-})
+});

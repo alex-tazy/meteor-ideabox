@@ -8,14 +8,13 @@ Template.people.helpers({
 	},
 
 	getOnline: function() {
-		debugger;
-		if (this.status.idle)
+		/*if (this.status.idle)
 		    return "label-warning"
 		  else if (this.status.online)
 		    return "label-success"
 		  else
 		    return "label-default"
-		return Meteor.users.find({ "status.online": true }).fetch();
+		return Meteor.users.find({ "status.online": true }).fetch();*/
 	}
 });
 
@@ -44,7 +43,7 @@ Template.messages.helpers({
 	}
 });
 
-Template.resulttchat.events({
+Template.tchat.events({
 	'submit form': function(ev) {
 		ev.preventDefault();
 

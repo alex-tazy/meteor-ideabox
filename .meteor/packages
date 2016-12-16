@@ -24,6 +24,3 @@ twbs:bootstrap
 accounts-password
 accounts-base
 fortawesome:fontawesome
-useraccounts:bootstrap
-session
-mizzao:user-status

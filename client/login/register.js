@@ -20,7 +20,7 @@ Template.register.events({
 						return false;
 					} else {
 						Meteor.loginWithPassword(login, pwd, function(error, result) {
-							Router.go("/index");
+							$('#registerModal').modal('hide');
 						});
 					}
 				});

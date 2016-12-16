@@ -1,28 +1,19 @@
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>Inscription</title>
-</head>
-
 <template name="register">
-    <section id="register-form">
-        <div class="overlay"></div>
-    	<div class="container">
-    		<div class="col-md-6 col-md-offset-3">
-    			<h1>Inscription</h1>
-    			{{#if currentUser}}
-    				<p>You are already logged <a href="/index">Click here to go home</a></p>
-    			{{else}}
-    				{{> formRegister}}
-    			{{/if}}
-    		</div>
-    	</div>
-    </section>
+	<div class="modal fade" id="registerModal">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Inscription</h4>
+				</div>
+				{{> formRegister}}
+			</div>
+		</div>
+	</div>
 </template>
 
 <template name="formRegister">
-	<fieldset>
-		<form class="form-signup">
+	<form class="form-signup">
+		<div class="modal-body">
 			<div class="form-group">
 				<label for="login" class="sr-only">Identifiant</label>
 				<input type="text" id="login" placeholder="Identifiant" class="form-control" required>
@@ -35,10 +26,9 @@
 				<label for="confirmPwd" class="sr-only">Confirmez le mot de passe</label>
 				<input type="password" id="confirmPwd" placeholder="Confirmez le mot de passe" class="form-control" required>
 			</div>
-			<div class="form-group">
-                <button class="btn pull-right" type="submit">Inscription</button>
-                <p class="pull-left"><a href="/login">Connexion</a></p>
-			</div>
-		</form>
-	</fieldset>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" type="submit">Inscription</button>
+		</div>
+	</form>
 </template>

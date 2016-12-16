@@ -1,15 +1,12 @@
-Router.route('/index', function() {
-	this.render('index');
+Router.configure({
+	layoutTemplate: 'layout'
 });
-Router.route('/login', function() {
-	this.render('login');
+Router.route('/index', {
+	name: 'index'
 });
-Router.route('/register', function() {
-	this.render('register');
+Router.route('/myideas', {
+	name: 'myideas'
 });
-Router.route('/myideas', function() {
-	this.render('myideas');
-});
-Router.route('/tchat', function() {
-	this.render('tchat');
+Router.route('/tchat', {
+	name: 'tchat'
 });

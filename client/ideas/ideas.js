@@ -2,15 +2,6 @@ import {
 	Template
 } from 'meteor/templating';
 
-Template.index.events({
-	'click .logout': function(ev) {
-		ev.preventDefault();
-		Meteor.call("userLogout", function(error, result) {
-			Router.go("/login");
-		})
-	}
-})
-
 Template.result.helpers({
 	getResults: function() {
 		// Récupère toutes les entrées de la collection "ideeList" dans un tableau

@@ -14,7 +14,7 @@ Template.formLogin.events({
 					$(".wrongLogin").removeClass("hidden");
 					return false;
 				} else {
-					Router.go("/index");
+					$('#loginModal').modal('hide');
 				}
 			});
 		}
