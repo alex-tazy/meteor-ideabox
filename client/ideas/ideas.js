@@ -17,10 +17,15 @@ Template.result.helpers({
 		return ideeList.find().fetch();
 	},
 
+	getAuthor: function() {
+		var author = Meteor.users.findOne(this.author);
+		return author.username;
+	},
+
 	isAuthor: function() {
-		var user = Meteor.user();
+		var user = Meteor.userId();
 		var me = this;
-		if (user.username == me.author)
+		if (user == me.author)
 			return true;
 		else
 			return false;
@@ -39,8 +44,8 @@ Template.result.events({
 
 	'dblclick .data': function(ev) {
 		ev.preventDefault();
-		var user = Meteor.user();
-		if (user.username == this.author) {
+		var user = Meteor.userId();
+		if (user == this.author) {
 			var elem = $(ev.target);
 			elem.addClass("hidden");
 			var cell = $(ev.currentTarget);
@@ -76,9 +81,9 @@ Template.result.events({
 
 Template.vote.helpers({
 	alreadyVoted: function() {
-		var user = Meteor.user();
+		var user = Meteor.userId();
 		var me = this;
-		var voted = me.votes.indexOf(user.username);
+		var voted = me.votes.indexOf(user);
 		if(voted == -1)
 			return false;
 		else
@@ -94,11 +99,10 @@ Template.vote.events({
 			var me = this;
 			var id = me._id;
 			var votes = me.votes;
-			var user = Meteor.user();
-			var author = user.username;
+			var user = Meteor.userId();
 			Meteor.call('updateCounter', {
 				id: id,
-				author: author,
+				author: user,
 				votes: votes
 			});
 		} else {
@@ -112,29 +116,14 @@ Template.form.events({
 		ev.preventDefault();
 		var titre = $("#titre").val();
 		var idee = $("#idee").val();
-		var author = Meteor.user();
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth() + 1;
-		var yyyy = today.getFullYear();
-		var h = today.getHours();
-		var m = today.getMinutes();
-
-		if (dd < 10) {
-			dd = '0' + dd
-		}
-
-		if (mm < 10) {
-			mm = '0' + mm
-		}
-
-		today = dd + '/' + mm + '/' + yyyy + ' ' + h + ':' + m;
+		var author = Meteor.userId();
+		var date = getDate();
 
 		Meteor.call('insertIdea', {
 			titre: titre,
 			idee: idee,
-			date: today,
-			author: author.username,
+			date: date,
+			author: author,
 			votes: []
 		}, function(error, result) {
 			if (result) {
@@ -146,3 +135,23 @@ Template.form.events({
 		});
 	}
 });
+
+function getDate() {
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth() + 1;
+	var yyyy = today.getFullYear();
+	var h = today.getHours();
+	var m = today.getMinutes();
+
+	if (dd < 10) {
+		dd = '0' + dd
+	}
+
+	if (mm < 10) {
+		mm = '0' + mm
+	}
+
+	today = dd + '/' + mm + '/' + yyyy + ' ' + h + ':' + m;
+	return today;
+};

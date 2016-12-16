@@ -7,3 +7,9 @@ Router.route('/login', function() {
 Router.route('/register', function() {
 	this.render('register');
 });
+Router.route('/myideas', function() {
+	this.render('myideas');
+});
+Router.route('/tchat', function() {
+	this.render('tchat');
+});
