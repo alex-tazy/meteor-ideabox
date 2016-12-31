@@ -1,40 +1,36 @@
 <template name="index">
-	{{#if currentUser}}
-	{{> result}}
-	{{else}}
-	<p>Erreur de connexion <a href="/login">Retourner à la page de connexion</a></p>
-	{{/if}}
-</template>
-
-<template name="form">
-	<form class="form-inline">
-		<div class="form-group">
-			<label for="titre">Titre: </label>
-			<input class="form-control" type="text" id="titre" placeholder="titre" required>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="titre">Titre: </label>
+					<input class="form-control" type="text" id="titre" placeholder="titre" required>
+				</div>
+				<div class="form-group">
+					<label for="idee">Idee: </label>
+					<input class="form-control" type="text" id="idee" placeholder="idee..." required>
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
 		</div>
-		<div class="form-group">
-			<label for="idee">Idee: </label>
-			<input class="form-control" type="text" id="idee" placeholder="idee..." required>
-		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
-</template>
-
-<template name="result">
-	<div class="col-md-12 text-center">
-		<p>{{> form}}</p>
 	</div>
+	<div class="row spacer-top"> 
+		{{> idea}}
+	</div>
+</template>
+
+<template name="idea">
 	{{#each getResults}}
 	<div class="col-md-4">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">
-					<span class="data text-left"><span class="data-value">{{ titre }}</span><input type="text" class="hidden form-control edit-input new-title" value="{{titre}}"></span>
+					<span class="data text-left"><span class="data-value">{{ title }}</span><input type="text" class="hidden form-control edit-input" data-edit="title" value="{{title}}"></span>
 				</h3>
 			</div>
 			<div class="panel-body">
-				<p><small><i><b>{{getAuthor}}</b> le {{date}}</i></small></p>
-				<p><span class="data"><span class="data-value">{{ idee }}</span><input type="text" class="hidden form-control edit-input new-idee" value="{{idee}}"></span></p>
+				<p><small><i><b>{{author}}</b> - {{getDate createdAt}}</i></small></p>
+				<p><span class="data"><span class="data-value">{{ idea }}</span><input type="text" class="hidden form-control" data-edit="idea" value="{{idea}}"></span></p>
 			</div>
 			<div class="panel-footer">
 				<div class="votes-idee pull-left">
@@ -42,7 +38,7 @@
 				</div>
 				<div class="pull-right">
 					{{#if isAuthor}}
-					<button class="btn btn-danger">Supprimer</button>
+					<button class="btn btn-danger" data-toggle="tooltip" title="Attention, cette action est irréversible !">Supprimer</button>
 					{{else}}
 					{{> vote}}
 					{{/if}}
@@ -56,8 +52,8 @@
 
 <template name="vote">
 	{{#if alreadyVoted}}
-	<button class="btn btn-primary disabled">Voter</button>
+	<button class="btn btn-primary disabled" data-toggle="tooltip" title="Vous avez déjà voté">Voter</button>
 	{{else}}
-	<button class="btn btn-primary">Voter</button>
+	<button class="btn btn-primary" data-toggle="tooltip" title="Vous ne pouvez voter qu'une fois">Voter</button>
 	{{/if}}
 </template>

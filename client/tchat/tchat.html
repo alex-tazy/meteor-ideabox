@@ -3,7 +3,7 @@
 		<form class="form-inline" style="margin-bottom: 40px">
 			<div class="form-group">
 				<label for="msg" class="sr-only">Message: </label>
-				<input type="text" id="msg" class="form-control">
+				<input type="text" id="msg" class="form-control" required>
 			</div>
 			<button class="btn btn-primary" type="Submit">Submit</button>
 		</form>
@@ -24,7 +24,7 @@
 		<div class="panel-body">
 			{{#each getMessages}}
 				<div class="text-left">
-				{{date}} | <b class="text-{{isAuthor}}">{{getAuthor}}</b>
+				{{getDate createdAt}} | <b class="text-{{isAuthor}}">{{author}}</b>
 				</div>
 				<div class="text-left messages">
 				{{message}}<hr>

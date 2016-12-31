@@ -1,0 +1,37 @@
+<template name="myAccount">
+<div class="col-md-10">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">People</h3>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<tr>
+					<td>Pseudo</td>
+					<td>{{currentUser.username}}</td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>{{currentUser.email}}</td>
+				</tr>
+				<tr>
+					<td>Nouveau mot de passe</td>
+					<td><input type="password" name="pwd" class="form-control"></td>
+				</tr>
+				<tr>
+					<td>Confirmer le mot de passe</td>
+					<td><input type="password" name="confirmPwd" class="form-control"></td>
+				</tr>
+				<tr>
+					<td>Mon profil</td>
+					<td><textarea class="form-control">{{currentUser.profil}}</textarea></td>
+				</tr>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-danger">Annuler</button>
+			<button class="btn btn-primary" type="submit">Enregistrer</button>
+		</div>
+	</div>
+	</div>
+</template>

@@ -5,7 +5,7 @@ import {
 Template.layout.events({
 	'click .logout': function(ev) {
 		ev.preventDefault();
-		Meteor.call("userLogout");
+		Meteor.logout();
 	}
 });
 

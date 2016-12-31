@@ -5,10 +5,5 @@ Meteor.methods({
 			username: user.login,
 			password: user.pwd
 		});
-	},
-
-	// Méthode appelée lorsque l'utilisateur veut se déconnecter
-	userLogout: function() {
-		Meteor.logout();
 	}
 });
